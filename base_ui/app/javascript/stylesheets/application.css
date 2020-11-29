@@ -1,0 +1,6 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+/* Custom classes go here - why? See https://youtu.be/krSgBUmIgP0?t=263. */
+
+@import "tailwindcss/utilities";
