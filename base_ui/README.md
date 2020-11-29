@@ -4,7 +4,7 @@ Most templates I've come across are designed to be used from the ground-up, cove
 
 # Opinions
 - TailwindCSS: simplifies styling with CSS, while still providing a lot of flexibility to come up with your own designs
-- Uses webpacker: gives you access to the Tailwind directives. I personally also remove `sprockets` so there's only one-way of doing things (even if it's weird to include images in JS), but that's a choice I've not enforced here
+- Uses [webpacker](https://github.com/rails/webpacker): gives you access to the Tailwind directives. I personally also remove `sprockets` so there's only one-way of doing things (even if it's weird to include images in JS), but that's a choice I've not enforced here
 - Plain CSS only: it's not too hard to add on SASS later :D
 - Uses views only: stuff like stimulus should be easy to add on, but I didn't want to include this as I personally prefer to use react-rails
 
