@@ -1,0 +1,42 @@
+<main class="px-4 py-4">
+  <p id="notice"><%%= notice %></p>
+
+  <h1><%= plural_table_name.titleize %></h1>
+
+  <div class="overflow-hidden border border-gray-200">
+    <div class="flex">
+  <% attributes.reject(&:password_digest?).each do |attribute| -%>
+      <div class="flex-1 px-6 py-3 bg-gray-100 text-left text-sm text-gray-500 uppercase">
+        <%= attribute.human_name %>
+      </div>
+  <% end -%>
+      <div class="flex-1 px-6 py-3 bg-gray-100 text-left text-sm text-gray-500 uppercase">
+        ACTIONS
+      </div>
+    </div>
+    <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+      <div class="bg-white flex border-t border-gray-200 hover:bg-gray-100">
+  <% attributes.reject(&:password_digest?).each do |attribute| -%>
+        <div class="flex-1">
+          <%%= link_to <%= model_resource_name %> do %>
+            <div class="px-6 py-4 whitespace-no-wrap flex items-center text-gray-900">
+              <%%= <%= singular_table_name %>.<%= attribute.column_name %> %>
+            </div>
+          <%% end %>
+        </div>
+  <% end -%>
+        <div class="flex-1">
+          <div class="px-6 py-4 whitespace-no-wrap flex space-x-2 text-gray-900">
+            <%%= link_to 'Edit', edit_<%= singular_route_name %>_path(<%= singular_table_name %>) %>
+            <span>|</span>
+            <%%= link_to 'Destroy', <%= model_resource_name %>, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </div>
+      </div>
+    <%% end %>
+  </div>
+
+  <br>
+
+  <%%= link_to 'New <%= singular_table_name.titleize %>', new_<%= singular_route_name %>_path %>
+</main>
