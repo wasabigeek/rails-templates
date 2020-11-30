@@ -1,16 +1,24 @@
-Attempts to bootstrap a minimal UI framework for your Rails app, for you to customise further.
+Attempts to bootstrap a minimal UI for your Rails app that plays nice with scaffolding, and is easy to customise further.
 
-Most templates I've come across are designed to be used from the ground-up, cover a lot of things that you might want some control over (e.g. maybe I'll hold off Sidekiq until the app does well), and are already quite opinionated (e.g. gems like friendly_id). This is opinionated, but only in one area (views), so you can configure the rest of the app as you like, or even add this on to an existing app (though that might not work so neatly).
+# Why?
+Most templates or themes sit in two extremes:
+- try to be as batteries-included as possible (e.g. authentication and background jobs), meaning if you disagree you have to undo their additions
+- provide a fancy design, but require you to dig into the HTML and CSS to figure out how to apply to your app
+
+I wanted something somewhere in the middle - not too opinionated about the rest of the app, but gives a decent design that works with Rail's generators out of the box.
 
 # Opinions
-- TailwindCSS: simplifies styling with CSS, while still providing a lot of flexibility to come up with your own designs
-- Uses [webpacker](https://github.com/rails/webpacker): gives you access to the Tailwind directives. I personally also remove `sprockets` so there's only one-way of doing things (even if it's weird to include images in JS), but that's a choice I've not enforced here
-- Plain CSS only: it's not too hard to add on SASS later :D
-- Uses views only: stuff like stimulus should be easy to add on, but I didn't want to include this as I personally prefer to use react-rails
+This _is_ still opinionated:
+- Rails views: no frontend framework, to keep the stack simple. It should be pretty easy to add stimulus, but I didn't want to include this as at the moment I prefer to sprinkle react-rails here and there (am open to creating variations of this repo though!)
+- TailwindCSS: simplifies styling with CSS, while still providing a lot of flexibility to tweak the designs as needed
+- [Webpacker](https://github.com/rails/webpacker): gives access to the Tailwind directives. I personally also remove sprockets so there's only one-way of doing things (even if it's weird to include images in JS), but that's a choice not enforced here
+- No SASS: it shouldn't be too hard to add it later
 
-Assumptions:
-- Rails 6
+# Prerequisites
+- Webpacker: Rails 6 should include it out of the box, otherwise check out the [installation instructions](https://github.com/rails/webpacker#installation)
 
 # Usage
 - clone this repo
-- in your Rails project, run `rails app:template LOCATION=/path/to/base_ui/template.rb`
+- in your Rails project (best to commit first), run `rails app:template LOCATION=/path/to/rails-templates/base_ui/template.rb`
+- do a scaffold `rails g scaffold ...`
+- check out the scaffolded UI!
