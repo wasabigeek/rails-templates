@@ -1,16 +1,23 @@
-<main class="px-4 py-4">
+<main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
   <p id="notice"><%%= notice %></p>
 
-  <h1><%= plural_table_name.titleize %></h1>
+  <div class="flex justify-between mb-4">
+    <h1 class="text-2xl font-semibold"><%= plural_table_name.titleize %></h1>
+    <div>
+      <%%= link_to 'New <%= singular_table_name.titleize %>', new_<%= singular_route_name %>_path, {
+        class: "border py-2 px-4 rounded hover:bg-gray-100"
+      } %>
+    </div>
+  </div>
 
-  <div class="overflow-hidden border border-gray-200">
+  <div class="overflow-hidden border border-gray-200 rounded">
     <div class="flex">
   <% attributes.reject(&:password_digest?).each do |attribute| -%>
-      <div class="flex-1 px-6 py-3 bg-gray-100 text-left text-sm text-gray-500 uppercase">
+      <div class="flex-1 px-6 py-3 bg-gray-100 text-left text-xs text-gray-500 uppercase tracking-wider">
         <%= attribute.human_name %>
       </div>
   <% end -%>
-      <div class="flex-1 px-6 py-3 bg-gray-100 text-left text-sm text-gray-500 uppercase">
+      <div class="flex-1 px-6 py-3 bg-gray-100 text-left text-xs text-gray-500 uppercase tracking-wider">
         ACTIONS
       </div>
     </div>
@@ -35,8 +42,4 @@
       </div>
     <%% end %>
   </div>
-
-  <br>
-
-  <%%= link_to 'New <%= singular_table_name.titleize %>', new_<%= singular_route_name %>_path %>
 </main>
