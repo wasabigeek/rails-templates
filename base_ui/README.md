@@ -1,5 +1,7 @@
 Attempts to bootstrap a minimal UI for your Rails app that plays nice with scaffolding, and is easy to customise further.
 
+![Scaffolded Index](docs/base_ui_index.png)
+
 # Why?
 Most templates or themes sit in two extremes:
 - try to be as batteries-included as possible (e.g. authentication and background jobs), meaning if you disagree you have to undo their additions
